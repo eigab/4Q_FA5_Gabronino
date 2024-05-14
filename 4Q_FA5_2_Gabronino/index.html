@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formative Assessment No. 5 - 2</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            margin: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 5px 0;
+        }
+    </style>
+    <script>
+        let contacts = [];
+
+// Updates the contact list
+        function updatecc() {
+            const list = document.getElementById('listofcc');
+            list.innerHTML = '';
+            contacts.forEach(contact => {
+                const li = document.createElement('li');
+                li.textContent = contact;
+                list.appendChild(li);
+            });
+        }
+
+// Adds a new contact
+        function addcc() {
+            const input = document.getElementById('incc');
+            const name = input.value.trim();
+            if (name) {
+                if (contacts.length >= 7) {
+                    contacts.shift();
+                }
+                contacts.push(name);
+                input.value = '';
+                updatecc();
+            }
+        }
+
+// Removes the last contact
+        function removecc() {
+            contacts.pop();
+            updatecc();
+        }
+
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Contacts List</h1>
+        <input type="text" id="incc" placeholder="Enter contact name">
+        <button onclick="addcc()">Add</button>
+        <button onclick="removecc()">Remove</button>
+        <ul id="listofcc"></ul>
+    </div>
+</body>
+</html>

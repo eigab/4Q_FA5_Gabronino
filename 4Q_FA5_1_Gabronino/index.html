@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formative Assessment No. 5 - 1</title>
+    <script>
+        function number() {
+            let num;
+            do {
+                num = prompt("Please enter a number:");
+            } while (isNaN(num) || num === "");
+
+            return parseInt(num);
+        }
+
+        function ooreShape() {
+            const num = number();
+            let output = `Number inputted: ${num}\n`;
+
+            if (num % 2 !== 0) {
+                for (let i = num; i >= 1; i--) {
+                    output += `${i} `.repeat(num).trim() + "\n";
+                }
+            } else {
+                for (let i = num; i >= 1; i--) {
+                    output += `${i} `.repeat(i).trim() + "\n";
+                }
+            }
+
+            document.getElementById("output").innerText = output;
+        }
+    </script>
+</head>
+<body>
+    <button onclick="ooreShape()">Start Here!</button>
+    <pre id="output"></pre>
+</body>
+</html>
